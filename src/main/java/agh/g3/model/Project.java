@@ -15,7 +15,4 @@ public class Project {
         this.name = name;
     }
 
-    public Project(String name) {
-        this.name = name;
-    }
 }
