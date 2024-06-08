@@ -13,3 +13,6 @@ V
 &src/main/java/agh/g3/model/Status.java,4\9\4940e8c44c927373be0c68f0289fe75b060c3432
 U
 %src/main/java/agh/g3/FileManager.java,f\b\fb565ba120cb77dd3846903f59c69878a23e2904
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
