@@ -1,23 +1,16 @@
 
 r
-java:S3740"/Provide the parametrized type for this generic.(è¤‰Ÿ8Ğ¯²½ÿ1J$fa78d445-692b-45a0-8e86-077da6547b1d
+java:S3740"/Provide the parametrized type for this generic.(Ÿˆë8ÒÉ½¾ÿ1J$7abd6029-578f-4129-9358-edf3fcfe9d52
 w
-java:S3740"/Provide the parametrized type for this generic.(Äñğáøÿÿÿÿ8Ñ¯²½ÿ1J$dcae8861-e124-40e0-87c5-a6203b143846
-w
-java:S3740*"/Provide the parametrized type for this generic.(¨›Á£üÿÿÿÿ8Ñ¯²½ÿ1J$1cc9781e-41dd-49d4-ae89-8182b690010a
+java:S3740 "/Provide the parametrized type for this generic.(×âŒşÿÿÿÿ8ÒÉ½¾ÿ1J$91850a09-bfc6-4faf-88bc-15ae72b608f3
+r
+java:S3740+"/Provide the parametrized type for this generic.(“ĞÀÈ8ÒÉ½¾ÿ1J$4d90e963-0df1-447f-a5f2-abb988ec864f
+r
+java:S3740A"/Provide the parametrized type for this generic.(Ş‹ğ‚8ÒÉ½¾ÿ1J$1b1e896c-49f4-4546-ab9d-b6dd5e175a51
 ³
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(è¤‰Ÿ8Ò¯²½ÿ1J$98bfba68-f760-48b1-bdfb-0373ed198a9e
-¸
-java:S13191"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(”¸¥üÿÿÿÿ8Ò¯²½ÿ1J$8d44171a-f5ee-4668-9504-47bc79352ae8
-²
-java:S13191"jThe type of "readedFile" should be an interface such as "List" rather than the implementation "ArrayList".(”¸¥üÿÿÿÿ8Ò¯²½ÿ1J$e6bdea9e-8670-445a-bfa6-9cc42efc17e0
-¤
-java:S1488*"\Immediately return this expression instead of assigning it to the temporary variable "logs".(¨›Á£üÿÿÿÿ8ÖÓ²½ÿ1J$8ebfddc1-bdd8-46f3-b448-bd913a3f6be2
-›	java:S116"TRename this field "FORMATTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ„çÿÿÿÿÿ8Õ¯²½ÿ1J$64ccf5b2-9a0c-4125-b1b4-8ad934f4d444
-™
-java:S1450"VRemove the "headers" field and declare it as a local variable in the relevant methods.(©µ8Ö¯²½ÿ1J$3021dc5b-c715-4161-a861-34577f2d7ec2
-r	java:S106#"+Replace this use of System.out by a logger.(å»ÈÂùÿÿÿÿ8Ú¯²½ÿ1J$11fe1842-394d-4ce1-8644-eed86bfeddea
-n
-java:S1068"+Remove this unused "headers" private field.(©µ8Ş¯²½ÿ1J$df205f43-22c2-4424-b137-e8726a3b77a7
-s
-java:S1068"+Remove this unused "logList" private field.(‚° øÿÿÿÿ8Ş¯²½ÿ1J$d8edf3ff-9302-4135-8ec5-04a43efba2b7
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ÿˆë8ÓÉ½¾ÿ1J$b515be27-b68f-479e-80d0-8a2103387d5d
+Ÿ
+java:S1488+"\Immediately return this expression instead of assigning it to the temporary variable "logs".(“ĞÀÈ8ÔÉ½¾ÿ1J$591cb546-bc55-4cc3-b0c6-de4da7ba2a2f
+›	java:S116"TRename this field "FORMATTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ„çÿÿÿÿÿ8ÙÉ½¾ÿ1J$bb51303e-2ff2-4827-9afe-16640dc168dc
+r	java:S106$"+Replace this use of System.out by a logger.(å»ÈÂùÿÿÿÿ8áÉ½¾ÿ1J$031692d6-3947-441c-a69d-ddf11b890062
+r	java:S106Q"+Replace this use of System.out by a logger.(’Â§êÿÿÿÿÿ8ª¶Â¾ÿ1J$ad42883c-acf6-4417-bcde-8839c0cdfe86

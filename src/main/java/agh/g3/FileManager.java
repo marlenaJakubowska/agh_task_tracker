@@ -19,44 +19,66 @@ public class FileManager {
     private String headers;
     private ArrayList<Log> logList = new ArrayList<>();
     public static final String FILE_PATH = "";
+    public static final String DELIMITER = ";";
 
     //Method that loads a data file
-    private Path loadFile() {
+    private Path loadPath() {
         return Paths.get(FILE_PATH);
     }
 
     //Method that loads subsequent lines as String
-    public ArrayList loadLines() {
-        Path path = loadFile();
-        ArrayList readedFile = new ArrayList<>();
+    public ArrayList readFile() {
+        var path = loadPath();
+        ArrayList readedLines = new ArrayList<>();
         try {
-            readedFile = (ArrayList) Files.readAllLines(path);
+            readedLines = (ArrayList) Files.readAllLines(path);
         } catch (IOException ex) {
             System.out.println("File does not exist");
         }
 
         //Create header and remove from readed list
-        headers = (String) readedFile.getFirst();
-        readedFile.removeFirst();
+        headers = (String) readedLines.getFirst();
+        readedLines.removeFirst();
 
-        ArrayList logs = toObject(readedFile);
+        ArrayList logs = toLogObject(readedLines);
         return logs;
     }
 
     // The method retrieves a series of data corresponding to lines in the file
     // and then creates Log objects and fills them with data
 
-    public ArrayList<Log> toObject(ArrayList<String> readedFile) {
+    private ArrayList<Log> toLogObject(ArrayList<String> readedFile) {
         ArrayList<Log> logs = new ArrayList<>();
-        for (String line : readedFile) {
-            String[] l = line.split(";");
-            Task task = new Task(l[0]);
-            Project project = new Project(l[1]);
-            LocalDateTime time = LocalDateTime.parse(l[2], FORMATTER);
-            Status status = Status.valueOf(l[3]);
-            Log log = new Log(task, project, time, status);
+        for (var line : readedFile) {
+            String[] l = line.split(DELIMITER);
+            var task = new Task(l[0]);
+            var project = new Project(l[1]);
+            var time = LocalDateTime.parse(l[2], FORMATTER);
+            var status = Status.valueOf(l[3]);
+            var log = new Log(task, project, time, status);
             logs.add(log);
         }
         return logs;
+    }
+
+    public void saveToFile() {
+        ArrayList outList = new ArrayList<>();
+        outList.add(headers);
+        for (var element : logList) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(element.getTask().getName()).
+                    append(DELIMITER).
+                    append(element.getProject().getName()).
+                    append(DELIMITER).
+                    append(element.getTime().format(FORMATTER)).
+                    append(DELIMITER).
+                    append(element.getStatus().toString());
+            outList.add(sb);
+        }
+        try {
+            Files.write(loadPath(), outList);
+        } catch (IOException ex) {
+            System.out.println("Unfortunately, the file creation failed");
+        }
     }
 }
