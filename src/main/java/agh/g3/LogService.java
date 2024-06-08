@@ -19,4 +19,11 @@ public class LogService {
         System.out.println("Log saved: " + log.getTime() + " " + log.getTask() + " " + log.getProject() + " " + log.getStatus());
         return newLog;
     }
+
+    public Log continueWork(Log log) {
+        Log newLog = new Log(log.getTask(), log.getProject(), Status.START);
+        System.out.println("Continuing timer...");
+        System.out.println("Log saved: " + log.getTime() + " " + log.getTask() + " " + log.getProject() + " " + log.getStatus());
+        return newLog;
+    }
 }
