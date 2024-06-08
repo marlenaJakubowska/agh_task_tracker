@@ -1,4 +1,4 @@
-package agh.g3;
+package agh.g3.services;
 
 import agh.g3.model.Log;
 import agh.g3.model.Project;

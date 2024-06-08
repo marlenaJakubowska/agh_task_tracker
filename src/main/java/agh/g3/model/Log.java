@@ -4,17 +4,24 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Log {
-    static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private Task task;
     private Project project;
-    private String time;
+    private LocalDateTime time;
     private Enum<Status> status;
 
     public Log(Task task, Project project, Enum<Status> status) {
         this.task = task;
         this.project = project;
-        this.time = LocalDateTime.now().format(FORMATTER);
+        this.time = LocalDateTime.now();
+        this.status = status;
+    }
+
+    public Log(Task task, Project project, LocalDateTime time, Enum<Status> status) {
+        this.task = task;
+        this.project = project;
+        this.time = time;
         this.status = status;
     }
 
@@ -42,11 +49,21 @@ public class Log {
         this.status = status;
     }
 
-    public String getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTime(LocalDateTime time) {
+        this.time = LocalDateTime.parse(time.format(FORMATTER));
+    }
+
+    @Override
+    public String toString() {
+        return "Log{" +
+                "task=" + task +
+                ", project=" + project +
+                ", time='" + time + '\'' +
+                ", status=" + status +
+                '}';
     }
 }
