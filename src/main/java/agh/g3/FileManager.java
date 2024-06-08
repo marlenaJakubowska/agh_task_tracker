@@ -86,4 +86,18 @@ public class FileManager {
             System.out.println("Unfortunately, the file creation failed");
         }
     }
+
+    public void printLogs(ArrayList<Log> logs) {
+        for (var log : logs) {
+            var sb = new StringBuilder();
+            sb.append(log.getTask().getName()).
+                    append(DELIMITER).
+                    append(log.getProject().getName()).
+                    append(DELIMITER).
+                    append(log.getTime().format(FORMATTER)).
+                    append(DELIMITER).
+                    append(log.getStatus().toString());
+            System.out.println(sb);
+        }
+    }
 }
