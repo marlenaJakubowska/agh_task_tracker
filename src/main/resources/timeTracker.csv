@@ -1,0 +1,3 @@
+task_name;project_name;time;status
+Task1;Project1;2024-05-10 10:05:00;START
+Task1;Project1;2024-05-10 00:00:00;STOP
