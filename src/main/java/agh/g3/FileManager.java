@@ -5,7 +5,7 @@ import agh.g3.model.Project;
 import agh.g3.model.Status;
 import agh.g3.model.Task;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,7 +18,7 @@ public class FileManager {
     private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private String headers;
     private ArrayList<Log> logList = new ArrayList<>();
-    public static final String FILE_PATH = "";
+    public static final String FILE_PATH = "src/main/resources/timeTracker.csv";
     public static final String DELIMITER = ";";
 
     //Method that loads a data file
@@ -61,22 +61,27 @@ public class FileManager {
         return logs;
     }
 
-    public void saveToFile() {
-        ArrayList outList = new ArrayList<>();
-        outList.add(headers);
-        for (var element : logList) {
+    public void saveToFile(Log log) {
             StringBuilder sb = new StringBuilder();
-            sb.append(element.getTask().getName()).
+            sb.append(log.getTask()
+                            .getName()).
                     append(DELIMITER).
-                    append(element.getProject().getName()).
+                    append(log.getProject()
+                            .getName()).
                     append(DELIMITER).
-                    append(element.getTime().format(FORMATTER)).
+                    append(log.getTime().format(FORMATTER)).
                     append(DELIMITER).
-                    append(element.getStatus().toString());
-            outList.add(sb);
-        }
+                    append(log.getStatus()
+                            .toString());
+
         try {
-            Files.write(loadPath(), outList);
+            File file = new File(FILE_PATH);
+            FileWriter fw = new FileWriter(file, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            pw.println(sb);
+            pw.close();
+            //Files.write(loadPath(), outList);
         } catch (IOException ex) {
             System.out.println("Unfortunately, the file creation failed");
         }
