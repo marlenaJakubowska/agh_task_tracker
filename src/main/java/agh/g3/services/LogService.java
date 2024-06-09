@@ -87,7 +87,7 @@ public class LogService {
             e.printStackTrace();
         }
     }
-}
+
 
     public void printLogs(List<Log> logs) {
         logs.sort(Comparator.comparing(Log::getTime).reversed());
