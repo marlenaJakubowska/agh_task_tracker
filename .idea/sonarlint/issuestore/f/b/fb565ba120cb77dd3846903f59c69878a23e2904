@@ -1,16 +1,0 @@
-
-r
-java:S3740"/Provide the parametrized type for this generic.(Ÿˆë8ÒÉ½¾ÿ1J$7abd6029-578f-4129-9358-edf3fcfe9d52
-w
-java:S3740 "/Provide the parametrized type for this generic.(×âŒşÿÿÿÿ8ÒÉ½¾ÿ1J$91850a09-bfc6-4faf-88bc-15ae72b608f3
-r
-java:S3740+"/Provide the parametrized type for this generic.(“ĞÀÈ8ÒÉ½¾ÿ1J$4d90e963-0df1-447f-a5f2-abb988ec864f
-r
-java:S3740A"/Provide the parametrized type for this generic.(Ş‹ğ‚8ÒÉ½¾ÿ1J$1b1e896c-49f4-4546-ab9d-b6dd5e175a51
-³
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ÿˆë8ÓÉ½¾ÿ1J$b515be27-b68f-479e-80d0-8a2103387d5d
-Ÿ
-java:S1488+"\Immediately return this expression instead of assigning it to the temporary variable "logs".(“ĞÀÈ8ÔÉ½¾ÿ1J$591cb546-bc55-4cc3-b0c6-de4da7ba2a2f
-›	java:S116"TRename this field "FORMATTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ„çÿÿÿÿÿ8ÙÉ½¾ÿ1J$bb51303e-2ff2-4827-9afe-16640dc168dc
-r	java:S106$"+Replace this use of System.out by a logger.(å»ÈÂùÿÿÿÿ8áÉ½¾ÿ1J$031692d6-3947-441c-a69d-ddf11b890062
-r	java:S106Q"+Replace this use of System.out by a logger.(’Â§êÿÿÿÿÿ8ª¶Â¾ÿ1J$ad42883c-acf6-4417-bcde-8839c0cdfe86
