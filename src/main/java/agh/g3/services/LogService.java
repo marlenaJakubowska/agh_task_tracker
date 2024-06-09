@@ -1,9 +1,7 @@
 package agh.g3.services;
 
 import agh.g3.model.Log;
-import agh.g3.model.Project;
 import agh.g3.model.Status;
-import agh.g3.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +10,15 @@ import java.util.NoSuchElementException;
 public class LogService {
 
     FileService fileManager = new FileService();
-    List<Log> logList = fileManager.getLogList();
+
+    public List<Log> getLogList() {
+        return fileManager.readFile();
+    }
 
     public void start(Log log) {
         List<Log> newLogList = new ArrayList<>();
         try {
+            List<Log> logList = getLogList();
             if (!logList.isEmpty()) {
                 Log lastLog = logList.getLast();
                 if (lastLog.getStatus() == Status.START) {
@@ -36,6 +38,7 @@ public class LogService {
 
     public void stop() {
         try {
+            List<Log> logList = getLogList();
             List<Log> newLogList = new ArrayList<>();
             Log log = logList.getLast();
             if (log.getStatus() == Status.START) {
@@ -51,14 +54,5 @@ public class LogService {
             System.out.println("Task list is empty. Start a task first.");
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        LogService logService = new LogService();
-        Log log = new Log(new Task("Task 1"), new Project("Project Alpha"), Status.START);
-        logService.start(log);
-//        logService.stop();
-//        logService.last();
-//        logService.continueTask("0");
     }
 }
