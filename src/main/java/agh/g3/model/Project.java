@@ -15,4 +15,8 @@ public class Project {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Project: " + name;
+    }
 }

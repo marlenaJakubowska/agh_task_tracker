@@ -59,11 +59,9 @@ public class Log {
 
     @Override
     public String toString() {
-        return "Log{" +
-                "task=" + task +
-                ", project=" + project +
-                ", time='" + time + '\'' +
-                ", status=" + status +
-                '}';
+        return "Log [" + task
+                + ", " + project
+                + ", Time='" + time + '\''
+                + ", Status='" + status + '\'' + "]";
     }
 }
