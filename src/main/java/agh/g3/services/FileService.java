@@ -30,7 +30,7 @@ public class FileService {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(
             "yyyy-MM-dd HH:mm:ss");
     private String headers;
-    private List<Log> logList;
+    private List<Log> logList = new ArrayList<>();
 
 
     private Path loadPath() {
