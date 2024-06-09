@@ -42,7 +42,8 @@ public class App
                 break;
             case "report":
                 ReportService reportService = new ReportService();
-                reportService.printReport(reportService.generateReport());
+                Report report = reportService.generateReport();
+                reportService.printReport(report);
                 break;
             case "list":
                 System.out.println("listing last logs");
