@@ -1,5 +1,6 @@
 package agh.g3.services;
 
+import agh.g3.FileManager;
 import agh.g3.model.Log;
 import agh.g3.model.Report;
 import agh.g3.model.Status;
@@ -12,7 +13,10 @@ import java.util.Map;
 
 public class ReportService {
 
-    public Report generateReport(List<Log> logs) {
+    FileManager fileManager = new FileManager();
+    List<Log> logs = fileManager.getLogList();
+
+    public Report generateReport() {
         Report report = new Report();
         Map<String, LocalDateTime> taskStartTimes = new HashMap<>();
 
