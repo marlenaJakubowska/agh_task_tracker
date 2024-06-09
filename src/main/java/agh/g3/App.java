@@ -40,22 +40,17 @@ public class App
                 System.out.println("last 5 unique tasks");
                 break;
             case "help":
-                System.out.println("Available commands in Task Tracker:");
-                System.out.println("*Save start time for the task:");
-                System.out.println("start -t [task_name] -p [project_name]");
-                System.out.println("*Save stop time for the task:");
-                System.out.println("stop");
-                System.out.println("*Continue last task:");
-                System.out.println("continue");
-                System.out.println("*Show report:");
-                System.out.println("report");
-                System.out.println("*Show list of logs:");
-                System.out.println("list");
-                System.out.println("*Show last 5 unique tasks:");
-                System.out.println("last");
-                System.out.println("*Show help menu:");
-                System.out.println("help");
-                System.out.println("For more information about specific command use help [specific command]");
+                System.out.println("Usage:");
+                System.out.println("  start -t [task] -p [project]         \t Start time tracking for a task.");
+                System.out.println("  stop                                 \t Stop the current task.");
+                System.out.println("  continue                             \t Resume the last tracked task.");
+                System.out.println("  report                               \t Show a summary report of all tracked tasks.");
+                System.out.println("  list                                 \t List all task logs.");
+                System.out.println("  last                                 \t Display the last 5 unique tasks.");
+                System.out.println("  help                                 \t Show this help menu.");
+                System.out.println("  help [command]                       \t Get help for a specific command.");
+                System.out.println("\nExample:");
+                System.out.println("  help start                           \t Provides more information on the 'start' command.");
 
                 if(args.length>1){
                     switch (args[1]) {
