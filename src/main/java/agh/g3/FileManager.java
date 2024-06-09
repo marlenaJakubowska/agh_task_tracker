@@ -21,6 +21,10 @@ public class FileManager {
     public static final String FILE_PATH = "src/main/resources/timeTracker.csv";
     public static final String DELIMITER = ";";
 
+    public ArrayList<Log> getLogList() {
+        return logList;
+    }
+
     //Method that loads a data file
     private Path loadPath() {
         return Paths.get(FILE_PATH);
