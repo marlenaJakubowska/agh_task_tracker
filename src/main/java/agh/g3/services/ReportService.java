@@ -39,10 +39,20 @@ public class ReportService {
     public void printReport(Report report) {
         report.getProjectTaskDurations().forEach((project, tasks) -> {
             Duration projectTotal = tasks.values().stream().reduce(Duration.ZERO, Duration::plus);
-            System.out.println(project + " ... " + formatDuration(projectTotal));
+//            System.out.println(project + " ... " + formatDuration(projectTotal));
+//            tasks.forEach((task, duration) ->
+//                    System.out.println("-- " + task + "... " + formatDuration(duration))
+//            );
+            System.out.printf("--------------------------------%n");
+            System.out.printf("| %-20s | %-10s |%n", project, formatDuration(projectTotal));
+            System.out.printf("--------------------------------%n");
+
             tasks.forEach((task, duration) ->
-                    System.out.println("-- " + task + "... " + formatDuration(duration))
+//                    System.out.println("-- " + task + "... " + formatDuration(duration));
+                    System.out.printf("| - %-18s | %-10s |%n", project, formatDuration(duration))
             );
+            System.out.println();
+
         });
 
         System.out.println("---\nTotal... " + formatDuration(report.getTotalDuration()));
