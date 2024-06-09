@@ -1,9 +1,7 @@
 package agh.g3.services;
 
 import agh.g3.model.Log;
-import agh.g3.model.Project;
 import agh.g3.model.Status;
-import agh.g3.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +46,7 @@ public class LogService {
         try {
             List<Log> logList = getLogList();
             if (logList.isEmpty()) {
-                System.out.println("AAAA Task list is empty. Start a task first.");
+                System.out.println("Task list is empty. Start a task first.");
                 return;
             }
             List<Log> newLogList = new ArrayList<>();
@@ -94,25 +92,24 @@ public class LogService {
         }
     }
 
+    public void printLogs(List<Log> logs) {
+        logs.sort(Comparator.comparing(Log::getTime).reversed());
+        Map<String, List<Duration>> durations = calculateTaskDurations(logs);
 
-//    public void printLogs(List<Log> logs) {
-//        logs.sort(Comparator.comparing(Log::getTime).reversed());
-//        Map<String, List<Duration>> durations = calculateTaskDurations(logs);
-//
-//        for (Log log : logs) {
-//            if (log.getStatus() == Status.START) {
-//                String key = log.getTask().getName() + "-" + log.getProject().getName();
-//                List<Duration> durationsList = durations.getOrDefault(key, List.of(Duration.ZERO));
-//                Duration totalDuration = durationsList.isEmpty() ? Duration.ZERO : durationsList.get(0);
-//                String formattedDuration = formatDuration(totalDuration);
-//                System.out.println("Task_name: " + log.getTask().getName() +
-//                        ", Project_name: " + log.getProject().getName() +
-//                        ", Time_started: " + log.getTime().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) +
-//                        ", Duration: " + formattedDuration);
-//                if (!durationsList.isEmpty()) durationsList.remove(0);
-//            }
-//        }
-//    }
+        for (Log log : logs) {
+            if (log.getStatus() == Status.START) {
+                String key = log.getTask().getName() + "-" + log.getProject().getName();
+                List<Duration> durationsList = durations.getOrDefault(key, List.of(Duration.ZERO));
+                Duration totalDuration = durationsList.isEmpty() ? Duration.ZERO : durationsList.get(0);
+                String formattedDuration = formatDuration(totalDuration);
+                System.out.println("Task_name: " + log.getTask().getName() +
+                        ", Project_name: " + log.getProject().getName() +
+                        ", Time_started: " + log.getTime().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) +
+                        ", Duration: " + formattedDuration);
+                if (!durationsList.isEmpty()) durationsList.remove(0);
+            }
+        }
+    }
 
     private String formatDuration(Duration duration) {
         long hours = duration.toHours();
@@ -140,12 +137,5 @@ public class LogService {
             }
         }
         return taskDurations;
-    }
-
-    public static void main(String[] args) {
-        LogService logService = new LogService();
-        Log log = new Log(new Task("task"), new Project("project"), Status.START);
-//        logService.start(log);
-        logService.stop();
     }
 }
