@@ -55,4 +55,31 @@ public class LogService {
             e.printStackTrace();
         }
     }
+
+    public List<Log> last() {
+        List<Log> logList = getLogList();
+        List<Log> lastLogs = new ArrayList<>();
+        int start = Math.max(0, logList.size() - 5);
+        for (int i = start; i < logList.size(); i++) {
+            Log log = logList.get(i);
+            System.out.println("Index: " + i + ", Task Name: " + log.getTask().getName());
+        }
+        return lastLogs;
+    }
+
+    public void continueTask() {
+        List<Log> logList = getLogList();
+        try {
+            Log log = logList.getLast();
+            if (log.getStatus() == Status.STOP) {
+                System.out.println("Starting last active job.");
+                start(log);
+            } else {
+                System.out.println("Work already started.");
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred in the continueTask method.");
+            e.printStackTrace();
+        }
+    }
 }
