@@ -81,8 +81,9 @@ public class LogService {
         try {
             Log log = logList.getLast();
             if (log.getStatus() == Status.STOP) {
-                System.out.println("Starting last active job.");
-                start(log);
+                System.out.println("Starting last stopped job.");
+                Log newLog = new Log(log.getTask(), log.getProject(), Status.START);
+                start(newLog);
             } else {
                 System.out.println("Work already started.");
             }
