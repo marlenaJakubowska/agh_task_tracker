@@ -30,7 +30,7 @@ public class FileService {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(
             "yyyy-MM-dd HH:mm:ss");
     private String headers;
-    private List<Log> logList = new ArrayList<>();
+    private List<Log> logList;
 
 
     private Path loadPath() {
@@ -66,7 +66,8 @@ public class FileService {
             readLines.removeFirst();
         }
 
-        return toLogObject(readLines);
+        logList = toLogObject(readLines);
+        return logList;
     }
 
     //Method that loads list of Logs to CSV file
@@ -126,5 +127,9 @@ public class FileService {
                             .toString());
             System.out.println(sb);
         }
+    }
+
+    public List<Log> getLogList() {
+        return logList;
     }
 }
