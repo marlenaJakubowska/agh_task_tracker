@@ -24,6 +24,11 @@ public class App
         Report report = reportService.generateReport(logs);
         reportService.printReport(report);
 
+        if(args.length == 0){
+            System.out.println("Please use one of the available commands or use help command to see list of available commands");
+            return;
+        }
+
         switch (args[0]) {
             case "start":
                 System.out.println("starting task");
