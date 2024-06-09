@@ -1,6 +1,7 @@
 package agh.g3;
 
 import agh.g3.model.*;
+import agh.g3.services.FileService;
 import agh.g3.services.LogService;
 import agh.g3.services.ReportService;
 import java.util.List;
@@ -9,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        FileManager fileManager = new FileManager();
+        FileService fileManager = new FileService();
         ReportService reportService = new ReportService();
         List<Log> logs = fileManager.readFile();
 
