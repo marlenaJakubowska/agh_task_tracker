@@ -17,7 +17,7 @@ Aplikcaja do rejestracji i raportowania czasu pracy z podziałem na projekty i z
 
 
 
-## Funkcjonaści
+## Funkcjonalności
 
 - Rozpoczęcie rejestracji czasu pracy dla zadania w projekcie
   `tasktracker start -t [nazwa zadania] -p [nazwa projektu]`
