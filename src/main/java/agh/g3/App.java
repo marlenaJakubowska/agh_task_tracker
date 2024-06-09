@@ -4,34 +4,45 @@ import agh.g3.model.*;
 import agh.g3.services.FileService;
 import agh.g3.services.LogService;
 import agh.g3.services.ReportService;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class App
 {
     public static void main( String[] args )
     {
-        FileService fileManager = new FileService();
-        ReportService reportService = new ReportService();
-        List<Log> logs = fileManager.readFile();
+//        FileService fileManager = new FileService();
+//        ReportService reportService = new ReportService();
+//        List<Log> logs = fileManager.readFile();
+//
+//        Report report = reportService.generateReport(logs);
+//        reportService.printReport(report);
+//
+//       LogService logService c
+//       logService.printLogs(logs);
 
-        Report report = reportService.generateReport(logs);
-        reportService.printReport(report);
+        if (args.length==0) {
+            System.out.println("No argumrnts provided. Please use help for more info");
+            return;
+        }
 
         LogService logService = new LogService();
-        logService.printLogs(logs);
+
 
         switch (args[0]) {
             case "start":
-                System.out.println("starting task");
+                logService.start(new Log(new Task(args[2]),new Project(args[4]), LocalDateTime.now(),Status.START));
                 break;
             case "stop":
-                System.out.println("stopping task");
+                logService.stop();
                 break;
             case "continue":
-                System.out.println("continue task");
+                logService.continueTask();
                 break;
             case "report":
-                System.out.println("printing report");
+                ReportService reportService = new ReportService();
+                reportService.printReport(reportService.generateReport());
                 break;
             case "list":
                 System.out.println("listing last logs");

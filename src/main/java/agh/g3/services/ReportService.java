@@ -12,7 +12,9 @@ import java.util.Map;
 
 public class ReportService {
 
-    public Report generateReport(List<Log> logs) {
+    public Report generateReport() {
+        FileService fileManager = new FileService();
+        List<Log> logs = fileManager.getLogList();
         Report report = new Report();
         Map<String, LocalDateTime> taskStartTimes = new HashMap<>();
 
