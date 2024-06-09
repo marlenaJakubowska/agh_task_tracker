@@ -5,6 +5,7 @@ import agh.g3.model.Log;
 import agh.g3.model.Status;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class LogService {
 
@@ -13,10 +14,12 @@ public class LogService {
 
     public void start(Log log) {
         try {
-            Log lastLog = logList.get(logList.size() - 1);
-            if (lastLog.getStatus() == Status.START) {
-                System.out.println("Work already started. Stopping.");
-                stop(lastLog);
+            if (!logList.isEmpty()) {
+                Log lastLog = logList.getLast();
+                if (lastLog.getStatus() == Status.START) {
+                    System.out.println("Work already started. Stopping.");
+                    stop();
+                }
             }
             System.out.println("Starting timer...");
             fileManager.saveToFile(log);
@@ -27,18 +30,19 @@ public class LogService {
         }
     }
 
-    public void stop(Log log) {
+    public void stop() {
         try {
-            if (log.getStatus() != Status.STOP) {
-                log.setStatus(Status.STOP);
+            Log log = logList.getLast();
+            if (log.getStatus() == Status.START) {
+                Log newLog = new Log(log.getTask(), log.getProject(), Status.STOP);
+                System.out.println("Stopping timer...");
+                fileManager.saveToFile(newLog);
+                System.out.println("Log saved: " + newLog.getTime() + " " + newLog.getTask() + " " + newLog.getProject() + " " + newLog.getStatus());
             } else {
-                log.setStatus(Status.STOP);
+                System.out.println("No started task to stop.");
             }
-            System.out.println("Stopping timer...");
-            fileManager.saveToFile(log);
-            System.out.println("Log saved: " + log.getTime() + " " + log.getTask() + " " + log.getProject() + " " + log.getStatus());
-        } catch (Exception e) {
-            System.out.println("An error occurred in the stop method.");
+        } catch (NoSuchElementException e) {
+            System.out.println("Task list is empty. Start a task first.");
             e.printStackTrace();
         }
     }
