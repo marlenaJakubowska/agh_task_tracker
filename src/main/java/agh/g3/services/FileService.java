@@ -21,6 +21,7 @@ public class FileService {
     static {
         try {
             FILE_PATH = new File("./taskTracker.csv").getCanonicalPath();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
