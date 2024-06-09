@@ -92,7 +92,8 @@ public class LogService {
         }
     }
 
-    public void printLogs(List<Log> logs) {
+    public void printLogs() {
+        List<Log> logs = getLogList();
         logs.sort(Comparator.comparing(Log::getTime).reversed());
         Map<String, List<Duration>> durations = calculateTaskDurations(logs);
 

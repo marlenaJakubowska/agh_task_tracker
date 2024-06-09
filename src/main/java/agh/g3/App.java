@@ -46,7 +46,7 @@ public class App
                 reportService.printReport(report);
                 break;
             case "list":
-                System.out.println("listing last logs");
+                logService.printLogs();
                 break;
             case "last":
                 System.out.println("last 5 unique tasks");
