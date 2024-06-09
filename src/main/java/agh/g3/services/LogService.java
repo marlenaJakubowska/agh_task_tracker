@@ -52,13 +52,4 @@ public class LogService {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        LogService logService = new LogService();
-        Log log = new Log(new Task("Task 1"), new Project("Project Alpha"), Status.START);
-        logService.start(log);
-//        logService.stop();
-//        logService.last();
-//        logService.continueTask("0");
-    }
 }
