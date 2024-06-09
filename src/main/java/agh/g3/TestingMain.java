@@ -15,7 +15,7 @@ public class TestingMain {
     public static void main(String[] args) {
 
         FileManager fileManager = new FileManager();
-        ArrayList<Log> logs = fileManager.readFile();
+        List<Log> logs = fileManager.readFile();
         fileManager.printLogs(logs);
 
         Log log1 = new Log(new Task("Task 1"), new Project("Project Alpha"), LocalDateTime.parse("2024-05-08 08:00:00", FORMATTER), Status.START);
